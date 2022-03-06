@@ -29,7 +29,7 @@ app.get(`/`, (req, res) => {
 });
 
 app.post('/cal',(req,res) =>{
-    let costpt = 166;
+    let costpt = 116;
     let resSala = Math.floor(req.body.salary);
 
     if(req.body.pt !== 0){
