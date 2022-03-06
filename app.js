@@ -30,9 +30,9 @@ app.get(`/`, (req, res) => {
 
 app.post('/cal',(req,res) =>{
     
-    let ptcost = 116;
-    let resSala = Math.floor(req.body.salary);
     
+    let resSala = Math.floor(req.body.salary);
+    let ptcost = 116;
 
     if(req.body.pt !== 0){
         resSala = (ptcost * req.body.pt)
