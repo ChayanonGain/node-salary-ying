@@ -23,6 +23,8 @@ app.get(`/`, (req, res) => {
         salary: "",
         pt: "",
         ot:"",
+        night:"",
+        inchart:"",
         sum: "",
     };
     res.render('index' ,{cal:data});
@@ -32,13 +34,15 @@ app.post('/cal',(req,res) =>{
     
     
     let resSala = Math.floor(req.body.salary);
-    let ptcost = 116;
+    let night = 150 * req.body.night;
+    let inchart = 50 * req.body.inchart;
+    let ptcost = 116 * req.body.pt;
 
     if(req.body.pt !== 0){
-        resSala = (ptcost * req.body.pt)
+        resSala = (resSala + ptcost + night + inchart)
     }
 
-    if(req.body.ot !== 0){
+    if(req.body.ot != 0){
         let day = 30;
         let workhours = 11;
         let plus = 1.5;
@@ -51,6 +55,8 @@ app.post('/cal',(req,res) =>{
         salary:req.body.salary,
         pt:req.body.pt,
         ot:req.body.ot,
+        night:req.body.night,
+        inchart:req.body.inchart,
         sum:resSala
     }
     res.render(`index`,{cal:data});
