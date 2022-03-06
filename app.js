@@ -4,7 +4,7 @@ const express = require(`express`);
 const path = require(`path`);
 const app = express();
 
-let PORT = process.env.PORT || 5007
+let PORT = process.env.PORT || 5000;
 
 app.use((req , res,next)=>{
 res.header('Access-Control-Allow-Orgin','*');
@@ -18,5 +18,5 @@ app.use(express.urlencoded({extended:false}));
 app.use(router);
 app.use(express.static(path.join(__dirname,'public')));
 app.listen(PORT , ()=>{
-    console.log(`Run server at port 5007`);
+    console.log(`Run server at port 5000`);
 });
