@@ -36,7 +36,6 @@ app.post('/cal',(req,res) =>{
 
     if(req.body.pt !== 0){
         resSala = (ptcost * req.body.pt)
-        console.log(resSala)
     }
 
     if(req.body.ot !== 0){
@@ -45,7 +44,7 @@ app.post('/cal',(req,res) =>{
         let plus = 1.5;
 
         let calOt = (((req.body.salary / day / workhours) * plus) * req.body.ot);
-        let tempPt = costpt * req.body.pt;
+        let tempPt = ptcost * req.body.pt;
         resSala = (Math.floor(req.body.salary) + tempPt + calOt).toFixed(2);
     }
     let data = {
