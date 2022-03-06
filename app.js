@@ -48,8 +48,7 @@ app.post('/cal',(req,res) =>{
         let plus = 1.5;
 
         let calOt = (((req.body.salary / day / workhours) * plus) * req.body.ot);
-        let tempPt = ptcost * req.body.pt;
-        resSala = (Math.floor(req.body.salary) + tempPt + calOt).toFixed(2);
+        resSala = (Math.floor(req.body.salary) + ptcost + inchart + night + calOt).toFixed(2);
     }
     let data = {
         salary:req.body.salary,
