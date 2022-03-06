@@ -1,5 +1,5 @@
 ////require
-const router = require(`..node-salary-ying/router/myRouter`);
+const router = require(`..salary-node-ying/router/myRouter`);
 const express = require(`express`);
 const path = require(`path`);
 const app = express();
