@@ -1,5 +1,5 @@
 ////require
-const router = require(`../Node-Kong/router/myRouter`);
+const router = require(`../Ying-Salary/router/myRouter`);
 const express = require(`express`);
 const path = require(`path`);
 const app = express();
