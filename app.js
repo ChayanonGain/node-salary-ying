@@ -25,19 +25,34 @@ app.get(`/`, (req, res) => {
         ot:"",
         night:"",
         inchart:"",
+        department:[{
+            id:1,
+            name:"ICU"
+        },
+        {
+            id:2,
+            name:"Ward"
+        }],
         sum: "",
     };
     res.render('index' ,{cal:data});
 });
 
 app.post('/cal',(req,res) =>{
-    
-    
+      
     let resSala = Math.floor(req.body.salary);
     let night = 150 * req.body.night;
     let inchart = 50 * req.body.inchart;
-    let ptcost = 116 * req.body.pt;
+    let ptcost = 0
 
+    console.log(req.body)
+    if(req.body.department == 1){
+       ptcost = 116 * req.body.pt;
+    }
+    else{
+       ptcost = 106 * req.body.pt;
+    }
+    
     if(req.body.pt !== 0){
         resSala = (resSala + ptcost + night + inchart)
     }
@@ -56,6 +71,14 @@ app.post('/cal',(req,res) =>{
         ot:req.body.ot,
         night:req.body.night,
         inchart:req.body.inchart,
+        department:[{
+            id:1,
+            name:"ICU"
+        },
+        {
+            id:2,
+            name:"Ward"
+        }],
         sum:resSala
     }
     res.render(`index`,{cal:data});
